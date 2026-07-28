@@ -37,16 +37,9 @@ body {
     repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 7px,
-      rgba($color-surface, 0.3) 7px,
-      rgba($color-surface, 0.3) 8px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 7px,
-      rgba($color-surface, 0.3) 7px,
-      rgba($color-surface, 0.3) 8px
+      transparent 10px,
+      rgba($color-surface, 0.3) 10px,
+      rgba($color-surface, 0.3) 1px
     );
 }
 

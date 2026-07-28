@@ -8,39 +8,34 @@ permalink: /about/
 ## PLAYER PROFILE
 
 ```
-NAME:    Player One
-CLASS:   Developer
-LEVEL:   99
+NAME:    小黑
+LEVEL:   17
 HP:      ████████████ MAX
-EXP:     ████████████ MAX
+EXP:     █ 0.9
 ```
 
-This blog is powered by **Pixel Theme** — an 8-bit retro Jekyll theme with a CRT scanline overlay, pixel art cards, and a boot sequence animation.
+早安我的朋友你可以叫我小黑，目前義務教育中，我覺得咖哩就是要拌到爛才好吃
 
-## THEME FEATURES
+歡迎揪吃拉麵  **(˶¯꒳¯˵ )**
 
-- 🕹️ **8-bit aesthetic** — Press Start 2P font, pixel art UI elements
-- 📺 **CRT scanlines** — optional overlay for retro monitor feel
-- 🖥️ **Boot sequence** — matrix-style startup text on first visit
-- 🃏 **Pixel cards** — post grid with inset shadow pixel cards
-- ❤️ **HP progress bar** — reading progress shown as health bar
-- 🎮 **Responsive** — 1-3 column grid, pixel-perfect
-- ⚡ **Zero deps** — vanilla JS, no jQuery
-- 🐙 **GitHub Pages** — compatible out of the box
+##  I'm interesting in...
 
-## CONFIGURE YOUR PALETTE
+- 🖥️ **Cybersecurity**
+- 🧿 **UI Design** 
+- 📷 **Photography** 
+- 💤 **~~Sleep~~**
+
 
 ```yaml
-pixel:
-  palette: "gameboy"    # gameboy | nes | cga | amber | synthwave
-  scanlines: true
-  boot_sequence: true
+Contact
+  Mail : 4bm930@gmail.com
+  Discord : 8yzt0
+  Telegram : zyc9858
+  Instagram : 8yzt0
 ```
 
-## GET THE THEME
+### GET THE THEME
 
-[View on GitHub →](https://github.com/csswitch/jekyll-pixel-theme) — MIT Licensed
+[View on GitHub → MIT Licensed](https://github.com/csswitch/jekyll-pixel-theme)  
 
----
 
-*Press A to continue.*

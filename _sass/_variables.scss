@@ -40,13 +40,22 @@ $sw-light:   #ff00c8;
 $sw-white:   #e0d0ff;
 
 // --- Active Palette (gameboy default) ---
-$color-bg:        $gb-bg;
-$color-surface:   $gb-dark;
-$color-border:    $gb-mid;
-$color-accent:    $gb-light;
-$color-text:      $gb-white;
-$color-dim:       rgba($gb-white, 0.5);
-$color-highlight: $gb-white;
+// --- Active Palette (blue / cream / red) ---
+$blue-primary: #dcdbdb;
+$cream-bg:     #f4f6ea;
+$red-accent:   #035def;
+$progress-bar: #c0d3fd;
+$ink-text:     #000000;
+$light-text:   #000000;
+
+$color-bg:        $blue-primary;
+$color-surface:   $cream-bg;
+$color-border:    $blue-primary;
+$color-accent:    $red-accent;
+$color-text:      $light-text;
+$color-dim:       rgba($light-text, 0.75);
+$color-highlight: $progress-bar;
+$color-text-dark: $ink-text;
 
 // --- Typography ---
 // Press Start 2P = pixel font from Google Fonts

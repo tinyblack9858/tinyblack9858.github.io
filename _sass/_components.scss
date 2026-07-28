@@ -291,7 +291,7 @@
 .btn-pixel--outline {
   @include pixel-btn($color-bg, $color-accent);
   border: $border-px;
-  box-shadow: 4px 4px 0 $color-border;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.8);
 }
 
 // --- Pagination ---

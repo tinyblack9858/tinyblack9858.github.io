@@ -1,0 +1,899 @@
+@charset "UTF-8";
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #dcdbdb;
+  color: #000000;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.75rem;
+  line-height: 1.8;
+  min-height: 100vh;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+}
+
+.pixel-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-color: #dcdbdb;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(244, 246, 234, 0.3) 10px, rgba(244, 246, 234, 0.3) 1px);
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.08) 3px, rgba(0, 0, 0, 0.08) 4px);
+  animation: flicker 8s infinite;
+}
+
+@keyframes flicker {
+  0%, 95%, 100% {
+    opacity: 1;
+  }
+  96%, 98% {
+    opacity: 0.97;
+  }
+  97% {
+    opacity: 0.92;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Press Start 2P", monospace;
+  color: #035def;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 1rem;
+}
+
+h2 {
+  font-size: 0.875rem;
+}
+
+h3 {
+  font-size: 0.75rem;
+}
+
+h4 {
+  font-size: 0.625rem;
+}
+
+.pixel-cursor::after {
+  content: "▊";
+  animation: blink 1s step-end infinite;
+  color: #035def;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+p {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+a {
+  color: #035def;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+code, pre {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.625rem;
+  background: #f4f6ea;
+  color: #035def;
+}
+
+code {
+  padding: 2px 6px;
+  border: 1px solid #dcdbdb;
+}
+
+pre {
+  background: #f4f6ea;
+  border: 2px solid #dcdbdb;
+  image-rendering: pixelated;
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.5), inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+pre::before {
+  content: "> SYSTEM OUTPUT";
+  display: block;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 0.5rem;
+  font-family: "Press Start 2P", monospace;
+}
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.625rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #dcdbdb;
+}
+
+th {
+  background: #f4f6ea;
+  color: #035def;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 4px solid #035def;
+}
+
+td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #f4f6ea;
+  color: #000000;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #dcdbdb;
+  margin: 2rem 0;
+}
+
+img {
+  max-width: 100%;
+  image-rendering: pixelated;
+  border: 2px solid #dcdbdb;
+}
+
+::selection {
+  background: #035def;
+  color: #dcdbdb;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dcdbdb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dcdbdb;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #035def;
+}
+
+.pixel-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: 56px;
+  background: #dcdbdb;
+  border-bottom: 4px solid #035def;
+  display: flex;
+  align-items: center;
+}
+.pixel-nav__inner {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pixel-nav__logo {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.625rem;
+  color: #035def;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pixel-nav__logo::after {
+  content: "▊";
+  animation: blink 1s step-end infinite;
+}
+.pixel-nav__links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.pixel-nav__links a {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: color 0.1s;
+}
+.pixel-nav__links a:hover, .pixel-nav__links a.active {
+  color: #035def;
+}
+.pixel-nav__toggle {
+  display: none;
+  background: none;
+  border: 2px solid #dcdbdb;
+  color: #035def;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+}
+@media (max-width: 640px) {
+  .pixel-nav__links {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: #dcdbdb;
+    border-bottom: 4px solid #035def;
+    flex-direction: column;
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 1rem;
+  }
+  .pixel-nav__links.open {
+    display: flex;
+  }
+  .pixel-nav__toggle {
+    display: block;
+  }
+}
+
+.pixel-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.section-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.625rem;
+  color: #035def;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-title::before {
+  content: "> ";
+  color: rgba(0, 0, 0, 0.75);
+}
+.section-title__count {
+  font-size: 0.5rem;
+  background: #f4f6ea;
+  border: 1px solid #dcdbdb;
+  padding: 2px 6px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.hp-bar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  z-index: 300;
+  background: #035def;
+  transition: width 0.1s linear;
+  image-rendering: pixelated;
+}
+.hp-bar::after {
+  position: absolute;
+  right: -8px;
+  top: -6px;
+  font-size: 14px;
+  color: #035def;
+}
+
+.boot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #dcdbdb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: #035def;
+  transition: opacity 0.4s ease;
+}
+.boot-overlay .boot-line {
+  opacity: 0;
+  animation: boot-in 0.2s forwards;
+}
+.boot-overlay .boot-line:nth-child(1) {
+  animation-delay: 0s;
+}
+.boot-overlay .boot-line:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.boot-overlay .boot-line:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.boot-overlay .boot-line:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.boot-overlay .boot-line:nth-child(5) {
+  animation-delay: 1.2s;
+}
+.boot-overlay .boot-line:nth-child(6) {
+  animation-delay: 1.5s;
+}
+.boot-overlay .boot-line:nth-child(7) {
+  animation-delay: 1.8s;
+}
+.boot-overlay .boot-line:nth-child(8) {
+  animation-delay: 2.1s;
+}
+
+@keyframes boot-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.pixel-footer {
+  border-top: 4px solid #035def;
+  padding: 2rem 1.5rem;
+  margin-top: 4rem;
+}
+.pixel-footer__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .pixel-footer__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.pixel-footer__brand {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  text-transform: uppercase;
+}
+.pixel-footer__links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.pixel-footer__links a {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.pixel-footer__links a:hover {
+  color: #035def;
+}
+.pixel-footer__credits {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.archive-year {
+  margin-bottom: 2rem;
+}
+.archive-year__heading {
+  font-size: 0.625rem;
+  color: #035def;
+  border-bottom: 2px solid #dcdbdb;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.archive-year__heading::before {
+  content: "YEAR_";
+}
+.archive-year__list {
+  list-style: none;
+}
+.archive-year__date {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  display: inline-block;
+  min-width: 80px;
+}
+.archive-year__link {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.625rem;
+  color: #000000;
+}
+.archive-year__link:hover {
+  color: #035def;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.post-card {
+  background: #f4f6ea;
+  border: 2px solid #dcdbdb;
+  image-rendering: pixelated;
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.5), inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+.post-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #035def, inset -2px -2px 0 rgba(0, 0, 0, 0.5), inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+.post-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.post-card__title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: #035def;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.post-card__excerpt {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  flex: 1;
+  line-height: 1.8;
+}
+.post-card__meta {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+.post-card__read-more {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: #dcdbdb;
+  background: #035def;
+  padding: 4px 8px;
+  align-self: flex-start;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  display: inline-block;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.post-card--featured {
+  grid-column: 1/-1;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: #f4f6ea;
+  border: 4px solid #035def;
+}
+.post-card--featured .post-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.post-card--featured .post-card__badge {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: #dcdbdb;
+  background: #035def;
+  padding: 4px 8px;
+  text-transform: uppercase;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  align-self: flex-start;
+}
+.post-card--featured .post-card__title {
+  font-size: 0.625rem;
+}
+.post-card--featured .post-card__excerpt {
+  font-size: 0.625rem;
+}
+@media (max-width: 640px) {
+  .post-card--featured {
+    flex-direction: column;
+  }
+}
+
+.tag-chip {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.45rem;
+  color: #dcdbdb;
+  background: #dcdbdb;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  text-decoration: none;
+}
+.tag-chip:hover {
+  background: #035def;
+  text-decoration: none;
+  color: #dcdbdb;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #dcdbdb;
+  padding-bottom: 1.5rem;
+}
+.post-header__tags {
+  margin-bottom: 1rem;
+}
+.post-header__title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1rem;
+  color: #035def;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+.post-header__meta {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.post-header__meta::before {
+  content: "[ ";
+  color: #dcdbdb;
+}
+.post-header__meta::after {
+  content: " ]";
+  color: #dcdbdb;
+}
+
+.post-body {
+  background: #f4f6ea;
+  border: 2px solid #dcdbdb;
+  image-rendering: pixelated;
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.5), inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  line-height: 2.2;
+  color: #000000;
+  margin-bottom: 2rem;
+}
+.post-body h2, .post-body h3, .post-body h4 {
+  color: #035def;
+  margin-top: 2rem;
+}
+.post-body blockquote {
+  border-left: 4px solid #035def;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: rgba(0, 0, 0, 0.75);
+  font-style: normal;
+}
+.post-body blockquote::before {
+  content: "> ";
+  color: #dcdbdb;
+}
+.post-body ul, .post-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.post-body ul li, .post-body ol li {
+  margin-bottom: 4px;
+}
+.post-body ul li::marker {
+  color: #035def;
+  content: "▸ ";
+}
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+@media (max-width: 640px) {
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+}
+.post-nav__item {
+  background: #f4f6ea;
+  border: 2px solid #dcdbdb;
+  image-rendering: pixelated;
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.5), inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: transform 0.08s;
+}
+.post-nav__item:hover {
+  transform: translate(-2px, -2px);
+  text-decoration: none;
+}
+.post-nav__dir {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  text-transform: uppercase;
+}
+.post-nav__title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: #035def;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.post-nav__next {
+  text-align: right;
+}
+
+.home-hero {
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+  border-bottom: 2px solid #dcdbdb;
+  margin-bottom: 2rem;
+}
+.home-hero__sprite {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+  animation: float 2s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.home-hero__title {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.25rem;
+  color: #035def;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+.home-hero__subtitle {
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 1.5rem;
+}
+.home-hero__btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-pixel {
+  background: #035def;
+  color: #dcdbdb;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+  transition: box-shadow 0.08s, transform 0.08s;
+}
+.btn-pixel:hover {
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+  transform: translate(2px, 2px);
+}
+.btn-pixel:active {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+  transform: translate(4px, 4px);
+}
+.btn-pixel {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-pixel--outline {
+  background: #dcdbdb;
+  color: #035def;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+  transition: box-shadow 0.08s, transform 0.08s;
+}
+.btn-pixel--outline:hover {
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+  transform: translate(2px, 2px);
+}
+.btn-pixel--outline:active {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+  transform: translate(4px, 4px);
+}
+.btn-pixel--outline {
+  border: 2px solid #dcdbdb;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+}
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+}
+.pagination a {
+  background: #035def;
+  color: #dcdbdb;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+  transition: box-shadow 0.08s, transform 0.08s;
+}
+.pagination a:hover {
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+  transform: translate(2px, 2px);
+}
+.pagination a:active {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+  transform: translate(4px, 4px);
+}
+.pagination a {
+  text-decoration: none;
+}
+.pagination .current-page {
+  color: #035def;
+  padding: 0.5rem 1rem;
+  border: 2px solid #dcdbdb;
+}
+
+.tag-cloud {
+  margin-bottom: 2rem;
+}
+.tag-cloud .tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-star {
+  background: #f4f6ea;
+  border: 2px solid #dcdbdb;
+  image-rendering: pixelated;
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.5), inset 2px 2px 0 rgba(255, 255, 255, 0.1);
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: #035def;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.08s;
+}
+.tag-star:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #035def;
+  text-decoration: none;
+}
+
+.copy-btn {
+  background: #f4f6ea;
+  color: #035def;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  image-rendering: pixelated;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+  transition: box-shadow 0.08s, transform 0.08s;
+}
+.copy-btn:hover {
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+  transform: translate(2px, 2px);
+}
+.copy-btn:active {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.8);
+  transform: translate(4px, 4px);
+}
+.copy-btn {
+  font-size: 0.5rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 2px 8px;
+  border: 1px solid #dcdbdb;
+}
+.copy-btn.copied {
+  background: rgb(45.5133777649%, 55.2033227084%, 4.4045204289%);
+  color: #dcdbdb;
+}
+
+/*# sourceMappingURL=main.css.map */

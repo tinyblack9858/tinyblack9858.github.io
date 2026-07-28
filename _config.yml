@@ -1,7 +1,7 @@
-title: "Pixel Blog"
-description: "Your 8-bit adventures in code"
-url: "https://csswitch.github.io"
-baseurl: "/jekyll-pixel-theme"
+title: "小黑's Blog"
+description: "Good morning, and in case I don't see you, good afternoon, good evening, and good night!"
+url: "https://tinyblack9858.github.io"
+baseurl: ""
 author:
   name: "Player One"
   email: "player@example.com"
@@ -23,8 +23,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
-
-permalink: /:year/:month/:day/:title/
 
 defaults:
   - scope:
