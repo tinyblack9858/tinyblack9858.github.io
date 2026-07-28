@@ -69,7 +69,7 @@
       <ul class="pixel-footer__links">
         <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
         <li><a href="{{ '/sitemap.xml' | relative_url }}">SITEMAP</a></li>
-        {% if site.author.email %}<li><a href="mailto:{{ site.author.email }}">CONTACT</a></li>{% endif %}
+        {% if site.author.email %}<li><a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ site.author.email }}" target="_blank" rel="noopener noreferrer">CONTACT</a></li>{% endif %}
       </ul>
     </div>
     <p class="pixel-footer__credits">

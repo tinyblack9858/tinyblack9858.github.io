@@ -10,7 +10,7 @@ permalink: /about/
 ```
 NAME:    小黑
 LEVEL:   17
-HP:      ████████████ MAX
+HP:      ███████████████████████████ MAX
 EXP:     █ 0.9
 ```
 
