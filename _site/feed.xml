@@ -1,6 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-28T18:41:19+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">小黑’s Blog</title><subtitle>Good morning, and in case I don&apos;t see you, good afternoon, good evening, and good night!</subtitle><author><name>Player One</name><email>player@example.com</email></author><entry><title type="html">Hello World</title><link href="http://localhost:4000/hello-world/" rel="alternate" type="text/html" title="Hello World" /><published>2025-11-05T00:00:00+08:00</published><updated>2025-11-05T00:00:00+08:00</updated><id>http://localhost:4000/Hello_World</id><content type="html" xml:base="http://localhost:4000/hello-world/"><![CDATA[<h2 id="hello-world">Hello World</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-08-08T01:43:44+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">小黑’s Blog</title><subtitle>Good morning, and in case I don&apos;t see you, good afternoon, good evening, and good night!</subtitle><author><name>8yzt0</name><email>4bm930@gmail.com</email></author><entry><title type="html">AIS3 心得</title><link href="http://localhost:4000/ais3/" rel="alternate" type="text/html" title="AIS3 心得" /><published>2026-08-08T00:00:00+08:00</published><updated>2026-08-08T00:00:00+08:00</updated><id>http://localhost:4000/AIS3</id><content type="html" xml:base="http://localhost:4000/ais3/"><![CDATA[<h2 id="新規則">新規則</h2>
+<p>這次的專題題目固定然後用抽的，報告地點變線上
+完全法克，我還幻想可以報告完爽爽聽其他人發表（
+By the way 我選跨域</p>
+
+<blockquote>
+  <p><img src="/assets/img/ais3/presantation.jpg" alt="presentation" width="40%" /></p>
+</blockquote>
+
+<h2 id="隊友">隊友</h2>
+<p>碩一 + 大三 + 高職 啊怎麼就我一個小糊咖✋😭✋</p>
+
+<h2 id="必修選修--通識課">必修選修 &amp; 通識課</h2>
+<p>這次的課程真的是讓我知道我自己很爛了💀🙏 有上的課大概2/3聽不懂，上課的時候根本左邊簡報右邊Agent然後瘋狂打字問專有名詞解釋，結果學到最多的是中打跟英打的速度？</p>
+
+<blockquote>
+  <p><img src="/assets/img/ais3/kahoot.jpg" alt="kahoot" width="30%" /></p>
+  <ul>
+    <li>用 Kahoot 上課超酷的</li>
+  </ul>
+</blockquote>
+
+<p>這次國網中心有贊助一堆機器可以讓我們玩嘻嘻，順便炫耀一下我有🍊的簽名（好像很多人都有），這次還有一件事超好笑，第一天因為課程延誤到午餐時間，staff 就在公告頻上傳了一個飯捲菜單，每個人都超問號啊，結果最後是幫我們午餐買了飯捲，叫我們跟著上面的步驟打開 = =</p>
+
+<blockquote>
+  <p><img src="/assets/img/ais3/food.jpg" alt="food" width="30%" /></p>
+</blockquote>
+
+<h2 id="專題報告">專題&amp;報告</h2>
+<p>我們抽到OT/ICS惡意程式及C2實作，我一開始真的不知道自己在幹嘛，因為沒有先備知識所以一直在查資料，後面真的非常感謝隊友幫我找到定位才讓我有事可以做。
+報告當天只有 3 個人約線下（@🪡🧵🪵揪不出來）然後超好笑我之前無心提過一句要不要 dress code ，沒想到真的被認真參考了</p>
+
+<blockquote>
+  <p><img src="/assets/img/ais3/hat.jpg" alt="dress-code" width="30%" /></p>
+  <ul>
+    <li>開鏡頭報告時真的會被自己笑死</li>
+  </ul>
+</blockquote>
+
+<p>題外話在買帽子時老闆報價是120/1，我就跟他說：可是我沒錢餒可以算我便宜一點嗎？
+最後算我100/1嘻嘻</p>
+
+<h2 id="超重要">超重要</h2>
+<p>一定要先試報！一定要先試報！一定要先試報！
+然後不要前天才做簡報不然會來不及</p>
+
+<h2 id="takeaways">Takeaways</h2>
+<ul>
+  <li>上課前空出 50GB 左右或帶一個外接硬碟不然一直下載 Lab跟工具電腦會直接炸掉</li>
+  <li>Docker 是個好東西</li>
+  <li>可以帶個 AP &amp; RFID 讀寫機（聽說男宿要一直叫助教下來開門）</li>
+  <li>帶顆枕頭過去，睡床板有夠不舒服</li>
+</ul>
+
+<h2 id="總結">總結</h2>
+<p>十分裡面十分，夯爆了</p>]]></content><author><name>8yzt0</name><email>4bm930@gmail.com</email></author><category term="CS" /><summary type="html"><![CDATA[好耶是一個我是 3]]></summary></entry><entry><title type="html">Hello World</title><link href="http://localhost:4000/hello-world/" rel="alternate" type="text/html" title="Hello World" /><published>2025-11-05T00:00:00+08:00</published><updated>2025-11-05T00:00:00+08:00</updated><id>http://localhost:4000/Hello_World</id><content type="html" xml:base="http://localhost:4000/hello-world/"><![CDATA[<h2 id="hello-world">Hello World</h2>
 <p>在 AIS3 Junior 看到好多人都有自己的部落格，不覺得超帥的嗎！
 所以就誕生了這個　<strong>(=^-ω-^=)</strong></p>
 
 <h1 id="然後呢">然後呢？</h1>
-<p>不知道欸，可能不會常常更新這邊，超好笑主打一個想發就發。</p>]]></content><author><name>Player One</name><email>player@example.com</email></author><category term="Init" /><summary type="html"><![CDATA[這就是為什麼我要寫 Blog..]]></summary></entry></feed>
+<p>不知道欸，可能不會常常更新這邊，超好笑主打一個想發就發。</p>]]></content><author><name>8yzt0</name><email>4bm930@gmail.com</email></author><category term="Init" /><summary type="html"><![CDATA[這就是為什麼我要寫 Blog..]]></summary></entry></feed>

@@ -121,8 +121,8 @@
 .tag-chip {
   font-family: $font-pixel;
   font-size: 0.45rem;
-  color: $color-bg;
-  background: $color-border;
+  color: $color-surface;
+  background: $color-accent;
   padding: 2px 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -130,9 +130,9 @@
   text-decoration: none;
 
   &:hover {
-    background: $color-accent;
+    background: $color-border;
     text-decoration: none;
-    color: $color-bg;
+    color: $color-accent;
   }
 }
 
